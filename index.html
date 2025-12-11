@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>67.is-a.dev</title>
+    <title>Skibidi Bundler</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -14,7 +14,7 @@
 
         .homepage-container {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--background-color) 0%, rgba(18, 18, 18, 0.95) 100%);
+            background: var(--background-color);
         }
 
         /* Animated background */
@@ -27,10 +27,11 @@
             pointer-events: none;
             z-index: -1;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 48, 48, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(102, 192, 244, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 48, 48, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, var(--box-shadow-color) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--box-shadow-color) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--box-shadow-color) 0%, transparent 50%);
             animation: backgroundFloat 20s ease-in-out infinite;
+            opacity: 0.5;
         }
 
         @keyframes backgroundFloat {
@@ -42,15 +43,15 @@
         .hero {
             position: relative;
             text-align: center;
-            padding: 4rem 2rem 3rem;
-            margin: 0 1rem 3rem;
-            border-radius: 20px;
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5rem 3rem 4rem;
+            margin: 2rem 3rem 4rem;
+            border-radius: 24px;
+            background: var(--header-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color-light);
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 24px 48px var(--shadow-medium),
+                inset 0 1px 0 var(--border-color-light);
             overflow: hidden;
         }
 
@@ -61,7 +62,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, var(--shine-effect), transparent);
             animation: shimmer 3s infinite;
         }
 
@@ -76,15 +77,17 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary-color), #ff6b6b, var(--primary-color));
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-hover), var(--primary-color));
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: gradientShift 4s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(255, 48, 48, 0.3);
+            filter: drop-shadow(0 0 30px var(--box-shadow-color));
         }
 
         @keyframes gradientShift {
@@ -93,11 +96,12 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 600px;
+            line-height: 1.7;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -112,32 +116,34 @@
         .cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            gap: 0.625rem;
+            padding: 1.125rem 2.5rem;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
         .cta-btn.primary {
-            background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
-            color: white;
-            box-shadow: 0 10px 25px rgba(255, 48, 48, 0.3);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: var(--text-color);
+            box-shadow: 0 12px 28px var(--box-shadow-color);
         }
 
         .cta-btn.secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--search-bg);
             color: var(--text-color);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--border-color-light);
+            box-shadow: 0 8px 20px var(--shadow-light);
         }
 
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 48, 48, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--box-shadow-color);
         }
 
         .cta-btn::before {
@@ -147,7 +153,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, var(--hover-glow), transparent);
             transition: left 0.5s;
         }
 
@@ -158,60 +164,67 @@
         /* Stats Section */
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 0 1rem 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 0 3rem 4rem;
+            padding: 0;
         }
 
         .stat-card {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            padding: 2rem;
+            background: var(--header-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-color-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px var(--shadow-light);
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 48, 48, 0.2);
-            border-color: rgba(255, 48, 48, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--box-shadow-color);
+            border-color: var(--primary-color);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -1px;
         }
 
         .stat-label {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
         }
 
         /* Featured Games Section */
         .featured-section {
-            margin: 0 1rem 3rem;
-            padding: 2rem;
-            border-radius: 20px;
-            background: rgba(18, 18, 18, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 3rem 4rem;
+            padding: 3rem;
+            border-radius: 24px;
+            background: var(--header-bg);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 8px 24px var(--shadow-light);
         }
 
         .section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 2.25rem;
+            font-weight: 800;
             margin: 0;
-            background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -219,8 +232,9 @@
 
         .section-subtitle {
             color: var(--text-muted);
-            margin-top: 0.5rem;
-            font-size: 1rem;
+            margin-top: 0.625rem;
+            font-size: 1.05rem;
+            font-weight: 400;
         }
 
         .view-all-link {
@@ -235,30 +249,31 @@
 
         .view-all-link:hover {
             transform: translateX(5px);
-            color: #ff6b6b;
+            color: var(--primary-hover);
         }
 
         /* Game Grid */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 2rem;
         }
 
         .game-card-wrapper {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--dropdown-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 4px 12px var(--shadow-light);
         }
 
         .game-card-wrapper:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 48, 48, 0.25);
-            border-color: rgba(255, 48, 48, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 24px 48px var(--card-hover-shadow);
+            border-color: var(--primary-color);
         }
 
         .game-card-wrapper::after {
@@ -268,7 +283,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--shine-effect);
             transform: rotate(45deg);
             transition: all 0.5s ease;
             opacity: 0;
@@ -288,24 +303,24 @@
 
         .game-image {
             width: 100%;
-            height: 140px;
+            height: 160px;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .game-card-wrapper:hover .game-image {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .game-info {
-            padding: 1rem;
+            padding: 1.25rem;
             text-align: center;
         }
 
         .game-title {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.625rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -313,38 +328,41 @@
 
         .game-platform {
             display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: bold;
+            padding: 0.375rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             background: var(--primary-color);
-            color: white;
+            color: var(--text-color);
+            box-shadow: 0 2px 8px var(--badge-shadow);
         }
 
         /* Categories Section */
         .categories-section {
-            margin: 0 1rem 3rem;
+            margin: 0 3rem 4rem;
+            padding: 0;
         }
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .category-card {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            padding: 2rem;
+            background: var(--header-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
             text-decoration: none;
             color: inherit;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-color-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 20px var(--shadow-light);
         }
 
         .category-card::before {
@@ -354,7 +372,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), #ff6b6b, var(--primary-color));
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-hover), var(--primary-color));
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -364,126 +382,192 @@
         }
 
         .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 48, 48, 0.2);
-            border-color: rgba(255, 48, 48, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 24px 48px var(--box-shadow-color);
+            border-color: var(--primary-color);
         }
 
         .category-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.25rem;
             color: var(--primary-color);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .category-card:hover .category-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(5deg);
         }
 
         .category-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
         }
 
         .category-description {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         .footer {
-            background: rgba(0, 0, 0, 0.8);
+            background: var(--dropdown-bg);
             backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem 1rem;
+            border-top: 1px solid var(--border-color-light);
+            padding: 2rem 3rem;
             text-align: center;
             margin-top: 3rem;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
+            margin: 0;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 2rem;
+                margin: 1rem 1.5rem 3rem;
+            }
+            
+            .stats-section,
+            .featured-section,
+            .categories-section {
+                margin-left: 1.5rem;
+                margin-right: 1.5rem;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
             }
             
             .hero p {
                 font-size: 1.1rem;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .cta-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
             
             .stats-section {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
             
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1.5rem;
             }
             
             .categories-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .featured-section {
+                padding: 2rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                margin: 0 0.5rem 2rem;
-                padding: 2rem 1rem;
+                margin: 0.5rem 1rem 2rem;
+                padding: 2.5rem 1.5rem;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
             
             .featured-section {
-                margin: 0 0.5rem 2rem;
+                margin: 0 1rem 2rem;
                 padding: 1.5rem;
             }
             
             .stats-section {
                 grid-template-columns: 1fr;
-                margin: 0 0.5rem 2rem;
+                margin: 0 1rem 2rem;
+                padding: 0;
+            }
+            
+            .categories-section {
+                margin: 0 1rem 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .categories-section {
+                padding: 0 0.5rem;
+            }
+        }
+
+        /* Theme selector styles */
+        .theme-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-left: auto;
+        }
+
+        .theme-selector-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .theme-btn {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border-color-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px var(--box-shadow-color);
+        }
+
+        .theme-btn.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 12px var(--primary-color);
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .theme-selector {
+                margin-left: 0;
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+
+            header {
+                flex-wrap: wrap;
             }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SERDHBMBLQ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SERDHBMBLQ');
-    </script>
 </head>
 <body>
     <div class="homepage-container">
@@ -510,13 +594,24 @@
                     <li><a href="./games.html?filter=html">HTML Games</a></li>
                 </ul>
             </nav>
+            <div class="theme-selector">
+                <span class="theme-selector-label">Theme:</span>
+                <div class="theme-buttons" id="themeButtons">
+                    <button class="theme-btn" data-theme="gold" title="Gold" style="background: linear-gradient(135deg, #e4c56c, #f0d780);"></button>
+                    <button class="theme-btn" data-theme="cyberpunk" title="Cyberpunk" style="background: linear-gradient(135deg, #00f0ff, #33f4ff);"></button>
+                    <button class="theme-btn" data-theme="neon" title="Neon" style="background: linear-gradient(135deg, #ff006e, #ff4d94);"></button>
+                    <button class="theme-btn" data-theme="ocean" title="Ocean" style="background: linear-gradient(135deg, #00d4ff, #4dd9ff);"></button>
+                    <button class="theme-btn" data-theme="sunset" title="Sunset" style="background: linear-gradient(135deg, #ff6b35, #ff8560);"></button>
+                    <button class="theme-btn" data-theme="grape" title="Grape" style="background: linear-gradient(135deg, #bb86fc, #d0a8ff);"></button>
+                </div>
+            </div>
         </header>
 
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>67.is-a.dev</h1>
-                <p>Experience the golden age of gaming with our curated collection of retro, flash, and HTML5 games. No downloads, no hassle - just pure nostalgic gaming fun!</p>
+                <h1>Skibidi Bundler</h1>
+                <p>Bundle of all the games you love and know. If you're unsure of what the play, select HTML games for a easier experience.</p>
                 <div class="cta-buttons">
                     <a href="./games.html?filter=html" class="cta-btn primary">
                         <i class="fas fa-gamepad"></i>
@@ -582,7 +677,7 @@
         </section>-->
 
         <!-- Featured HTML Games -->
-        <section class="featured-section">
+        <!--<section class="featured-section">
             <div class="section-header">
                 <div>
                     <h2 class="section-title">Featured HTML Games</h2>
@@ -614,7 +709,7 @@
                     <div class="title">Zig Zag</div>
                 </a>
             </div>
-        </section>
+        </section>-->
 
         <!-- Game Categories -->
         <section class="featured-section categories-section">
@@ -656,16 +751,58 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
-                <div class="footer-links">
-                    <a href="./privacy.txt">Privacy Policy</a>
-                </div>
-                <p>&copy; 2025 67.is-a.dev. Games are property of their respective owners.</p>
+                <p>&copy; 2025 Skibidi Bundler. Games are property of their respective owners.</p>
             </div>
         </footer>
     </div>
 
     <script src="script.js"></script>
+    <script src="script.js"></script>
     <script>
+        // Theme management
+        function initializeTheme() {
+            // Check URL for theme parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlTheme = urlParams.get('theme');
+            
+            // Get saved theme from localStorage
+            const savedTheme = localStorage.getItem('selectedTheme') || 'gold';
+            
+            // Use URL theme if provided, otherwise use saved theme
+            const themeToUse = urlTheme || savedTheme;
+            
+            // Apply theme
+            applyTheme(themeToUse);
+        }
+
+        function applyTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('selectedTheme', themeName);
+            
+            // Update active button
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-theme') === themeName) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Add click handlers to theme buttons
+        document.querySelectorAll('.theme-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const theme = this.getAttribute('data-theme');
+                applyTheme(theme);
+            });
+        });
+
+        // Initialize theme on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeTheme);
+        } else {
+            initializeTheme();
+        }
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js').catch(function(error) {

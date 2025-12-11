@@ -4,6 +4,31 @@ let badgeBackgrounds = [];
 let clusterize = null;
 let disabledBadges = new Set(); // Track disabled badge types
 const searchInput = document.getElementById('searchInput');
+
+// Initialize theme from localStorage or URL
+function initializeTheme() {
+    // Check URL for theme parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlTheme = urlParams.get('theme');
+    
+    // Get saved theme from localStorage
+    const savedTheme = localStorage.getItem('selectedTheme') || 'gold';
+    
+    // Use URL theme if provided, otherwise use saved theme
+    const themeToUse = urlTheme || savedTheme;
+    
+    // Apply theme
+    document.documentElement.setAttribute('data-theme', themeToUse);
+    localStorage.setItem('selectedTheme', themeToUse);
+}
+
+// Call on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+} else {
+    initializeTheme();
+}
+
 // get search params FILTER
 const params = new URLSearchParams(window.location.search);
 
