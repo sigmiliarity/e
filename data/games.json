@@ -1,7 +1,6 @@
 [
   {
     "path": "/m/web2/",
-    "image-type": "static",
     "name": "SIGMA",
     "games": [
       [
@@ -16,7 +15,6 @@
   },
   {
     "path": "/m/",
-    "image-type": "static",
     "name": "OG",
     "games": [
       ["Sans fight", "a1/badtimesimulator", "cover.png"],
