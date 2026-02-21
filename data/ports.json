@@ -24,6 +24,15 @@
     ]
   },
   {
+    "path": "/m/delta2/",
+    "games": [
+      ["Deltarune Chapter 1", "1", ""],
+      ["Deltarune Chapter 2", "2", ""],
+      ["Deltarune Chapter 3", "3", ""],
+      ["Deltarune Chapter 4", "4", ""],
+    ]
+  }
+  {
     "path": "/github/aukak/hollow-knight",
     "games": [["Hollow Knight", "", ""]]
   },
