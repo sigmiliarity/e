@@ -1,14 +1,29 @@
 [
-    {
-        "name": "HTML",
-        "location": "/games.json",
-        "handler": "return {id: 'H' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: group.path + game[1] + '/' + (game[2] || group.image),type:'html'}",
-        "groups": [["html","orange"]]
-    },
-    {
-        "name": "RETRO",
-        "location": "/retro.json",
-        "handler": "return {id: 'R' + i * 1000 + j + 1, title: game[0],url:'/retro/?core=autodetect&rom=https%3A%2F%2Fapi.codetabs.com%2Fv1%2Fproxy%2F%3Fquest%3Ddownload6.mtcontent.rs%2Ffiles%2FNo-Intro%2F' + group.romPath + game[0] + ' ' + game[1][0] + '.zip',img:'https://raw.githubusercontent.com/libretro-thumbnails/' + group.imgPath + '/master/Named_Boxarts/' + encodeURIComponent(game[0] + ' ' + game[1][0]) + '.png',type:group.name}",
-        "groups": [["NES","#E60012","RETRO"],["SNES","#8C4799","RETRO"],["GBA","#6E5DF6","RETRO"],["N64","#00934B","RETRO"],["GBC","#8ED022","RETRO"],["GB","#8A93A6","RETRO"],["DS","#0780B1","RETRO"],["Sega_Genesis","#FF6F00","RETRO"]]
-    }
+  {
+    "name": "PORTED",
+    "location": "ports.json",
+    "handler": "return {id: 'P' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: 'https://cdn.jsdelivr.net/gh/gn-math/covers@main/' + game[2] + '.png',type:'PORTS'}",
+    "groups": [["PORTS", "orange"]]
+  },
+  {
+    "name": "SIGMA",
+    "location": "games.json",
+    "handler": "return {id: 'S' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: group.path + game[1] + '/' + (game[2] || group.image),type:group.name}",
+    "groups": [
+      ["SIGMA", "green"],
+      ["OG", "red"]
+    ]
+  },
+  {
+    "name": "RANDOM_2",
+    "location": "e.json",
+    "handler": "return {id: 'R' + i * 1000 + j + 1, title: game[0].startsWith('Cl') ? game[0].slice(2) : game[0], url: group.path + game[1], img: '', type: 'RANDOM_2'}",
+    "groups": [["RANDOM_2", "purple", "RANDOM"]]
+  },
+  {
+    "name": "RANDOM_1",
+    "location": "/old.json",
+    "handler": "return {id: 'H' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: group.path + game[1] + '/' + (game[2] || group.image),type:'RANDOM_1'}",
+    "groups": [["RANDOM_1", "pink", "RANDOM"]]
+  }
 ]

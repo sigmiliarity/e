@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/m/web/",
+    "image-type": "static",
+    "games": [
+      ["Amanda The Adventurer", "amanda-the-adventurer", "450"],
+      ["Andy's Apple Farm", "andys-apple-farm", "426"],
+      ["Baldi's Basics Classic Remastered", "baldi-remaster", "466"],
+      ["Baldi's Basics Plus", "baldi-plus", "467"],
+      ["Bendy and The Ink Machine", "bendy", "215"],
+      ["BERGENTRUCK 201x", "bergentruck", "455"],
+      ["Buckshot Roulette", "buckshot-roulette", "205"],
+      ["Cuphead", "cuphead", "465"],
+      ["Deltatraveler", "deltatraveler", "560"],
+      ["Do NOT Take This Cat Home", "donottakethiscathome", "193"],
+      ["Fears to Fathom: Home Alone", "fears-to-fathom", "460"],
+      ["Pizza Tower", "pizza-tower", "267"],
+      ["RAFT", "raft", "457"],
+      ["R.E.P.O", "repo", "195"],
+      ["Slender: The Eight Pages", "slender", "451"],
+      ["Speed Stars", "speed-stars", "266"],
+      ["That's Not My Neighbor", "thats-not-my-neighbor", "216"],
+      ["The Man From the Window", "the-man-in-the-window", "459"],
+      ["Ultrakill", "ultrakill", "196"],
+      ["Undertale Yellow", "undertale-yellow", "456"],
+      ["Web Fishing", "web-fishing", "423"],
+      ["Yume Nikki", "yume-nikki", "433"]
+    ]
+  }
+]
