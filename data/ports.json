@@ -24,17 +24,8 @@
     ]
   },
   {
-    "path": "/m/delta2/",
-    "games": [
-      ["Deltarune Chapter 1", "1", ""],
-      ["Deltarune Chapter 2", "2", ""],
-      ["Deltarune Chapter 3", "3", ""],
-      ["Deltarune Chapter 4", "4", ""]
-    ]
-  },
-  {
     "path": "/github/aukak/hollow-knight",
-    "games": [["Hollow Knight", "", ""]]
+    "games": [["Hollow Knight", "", "468"]]
   },
   {
     "path": "/github/web-ports/",
@@ -42,6 +33,37 @@
       ["Cuphead", "cuphead", "465"],
       ["Untitled Goose Game", "untitled-goose-game", "718"],
       ["Celeste", "celeste", "623"]
+    ]
+  },
+  {
+    "path": "/m/five/",
+    "games": [
+      ["FNAF 1", "1", "38"],
+      ["FNAF 2", "2", "39"],
+      ["FNAF 3", "3", "40"],
+      ["FNAF 4", "4", "41"],
+      ["FNAF Pizzeria Simulator", "ps", "191"],
+      ["FNAF World", "w", "190"],
+      ["FNAF Sister Location", "sl", "185"],
+      ["FNAF Ultimate Custom Night", "ucn", "192"]
+    ]
+  },
+  {
+    "path": "/m/web2/",
+    "games": [
+      ["Five Nights At Epstein's", "five-nights-at-epsteins-s2", "710"],
+      ["Ultrakill", "ultrakill", "196"],
+      ["The Impossible Game", "the-impossible-game", "27"],
+      ["Karlson", "karlson", "542"]
+    ]
+  },
+  {
+    "path": "/m/delta2/",
+    "games": [
+      ["Deltarune Chapter 1", "1", "492"],
+      ["Deltarune Chapter 2", "2", "492"],
+      ["Deltarune Chapter 3", "3", "492"],
+      ["Deltarune Chapter 4", "4", "492"]
     ]
   }
 ]

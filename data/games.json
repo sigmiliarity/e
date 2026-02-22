@@ -1,19 +1,5 @@
 [
   {
-    "path": "/m/web2/",
-    "name": "SIGMA",
-    "games": [
-      [
-        "Five Nights At Epstein's",
-        "five-nights-at-epsteins-s2",
-        "assets/images/cutscene.png"
-      ],
-      ["Ultrakill", "ultrakill", ""],
-      ["The Impossible Game", "the-impossible-game", ""],
-      ["Karlson", "karlson", ""]
-    ]
-  },
-  {
     "path": "/m/",
     "name": "OG",
     "games": [
