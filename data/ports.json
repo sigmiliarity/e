@@ -23,15 +23,12 @@
     ]
   },
   {
-    "path": "/github/aukak/hollow-knight",
-    "games": [["Hollow Knight", "", "468"]]
-  },
-  {
-    "path": "/github/web-ports/",
+    "path": "/m/",
     "games": [
-      ["Cuphead", "cuphead", "465"],
-      ["Untitled Goose Game", "untitled-goose-game", "718"],
-      ["Celeste", "celeste", "623"]
+      ["Hollow Knight", "web3", "468"],
+      ["Cuphead", "web4", "465"],
+      ["Untitled Goose Game", "web5", "718"],
+      ["Celeste", "web6", "623"]
     ]
   },
   {
