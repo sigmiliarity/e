@@ -1,7 +1,6 @@
 [
   {
     "path": "/m/",
-    "name": "OG",
     "games": [
       ["Sans fight", "a1/badtimesimulator", "cover.png"],
       ["Cookie Clicker", "a1/cookie-clicker/2052", "cover.png"],
@@ -10,7 +9,6 @@
       ["Baldi's Basics", "a2/semag/baldis-basics", "splash.png"],
       ["Core ball", "a6/core-ball", "pr_source.png"],
       ["Geometry Dash", "a2/semag/gdlite", "logo.png"],
-      ["Gunspin", "a1/gunspin", "cover.png"],
       ["Incremancer", "a1/incremancer", "cover.png"],
       ["OvO", "a2/semag/ovo", "loading-logo.png"],
       ["Retro Bowl", "a2/semag/retrobowl", "retrobowl.ico"],

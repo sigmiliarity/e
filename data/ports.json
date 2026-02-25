@@ -17,7 +17,6 @@
       ["Speed Stars", "speed-stars", "266"],
       ["That's Not My Neighbor", "thats-not-my-neighbor", "216"],
       ["The Man From the Window", "the-man-in-the-window", "459"],
-      ["Ultrakill", "ultrakill", "196"],
       ["Undertale Yellow", "undertale-yellow", "456"],
       ["Web Fishing", "web-fishing", "423"],
       ["Yume Nikki", "yume-nikki", "433"]
@@ -53,7 +52,6 @@
     "games": [
       ["Five Nights At Epstein's", "five-nights-at-epsteins-s2", "710"],
       ["Ultrakill", "ultrakill", "196"],
-      ["The Impossible Game", "the-impossible-game", "27"],
       ["Karlson", "karlson", "542"]
     ]
   },

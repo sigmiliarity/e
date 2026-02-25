@@ -1,29 +1,26 @@
 [
   {
-    "name": "PORTED",
-    "location": "ports.json",
-    "handler": "return {id: 'P' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: '/github/gn-math/covers/' + game[2] + '.png',type:'PORTS'}",
-    "groups": [["PORTS", "orange"]]
+    "name": "PORTS",
+    "location": "ports",
+    "url": "group.path + game[1] + '/'",
+    "img": "'https://cdn.jsdelivr.net/gh/gn-math/covers@main/' + game[2] + '.png',"
   },
   {
-    "name": "SIGMA",
-    "location": "games.json",
-    "handler": "return {id: 'S' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: group.path + game[1] + '/' + (game[2] || group.image),type:group.name}",
-    "groups": [
-      ["SIGMA", "green"],
-      ["OG", "red"]
-    ]
+    "name": "OG",
+    "location": "games",
+    "url": "group.path + game[1] + '/'",
+    "img": "group.path + game[1] + '/' + game[2]"
   },
   {
-    "name": "RANDOM_2",
-    "location": "e.json",
-    "handler": "return {id: 'R' + i * 1000 + j + 1, title: game[0].startsWith('Cl') ? game[0].slice(2) : game[0], url: group.path + game[1], img: '', type: 'RANDOM_2'}",
-    "groups": [["RANDOM_2", "purple", "RANDOM"]]
+    "name": "OLD",
+    "location": "old",
+    "url": "group.path + game[1] + '/'",
+    "img": "group.path + game[1] + '/' + (game[2] || group.image)"
   },
   {
-    "name": "RANDOM_1",
-    "location": "/old.json",
-    "handler": "return {id: 'H' + i * 1000 + j + 1,title: game[0],url: group.path + game[1] + '/',img: group.path + game[1] + '/' + (game[2] || group.image),type:'RANDOM_1'}",
-    "groups": [["RANDOM_1", "pink", "RANDOM"]]
+    "name": "CUSTOM",
+    "location": "custom",
+    "url": "game[1]",
+    "img": "game[2]"
   }
 ]

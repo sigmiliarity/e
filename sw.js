@@ -43,6 +43,16 @@ const createResponse = (res, path) =>
     },
   });
 
+const fetchApi = async (owner, repo, path) => {
+  const url = `https://cdn.jsdelivr.net/gh/${owner}/${repo}@main/${path}`;
+  try {
+    const res = await fetch(url);
+    return res.ok ? createResponse(res, path) : null;
+  } catch {
+    return null;
+  }
+};
+
 const fetchGitHub = async (owner, repo, path) => {
   const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
   try {
@@ -68,6 +78,16 @@ self.addEventListener("fetch", (e) => {
   if (gh) {
     return e.respondWith(
       fetchGitHub(gh[1], gh[2], gh[3]).then(
+        (res) => res || new Response("GitHub Fetch Failed", { status: 500 }),
+      ),
+    );
+  }
+
+  // Route:  /api/{owner}/{repo}/{path}
+  const api = path.match(/^\/api\/([^/]+)\/([^/]+)\/(.+)$/);
+  if (api) {
+    return e.respondWith(
+      fetchApi(api[1], api[2], api[3]).then(
         (res) => res || new Response("GitHub Fetch Failed", { status: 500 }),
       ),
     );
