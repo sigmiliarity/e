@@ -14,6 +14,10 @@
                 placeholder="Search games..."
                 autocomplete="off"
             />
+            <div id="message">
+                yo hit ctrl+shift+r (will break page temporarily) and then
+                ctrl+r to fix a few games
+            </div>
             <div id="badgeFilter">
                 <span class="badge disabled" id="badgeFilterAll">All</span>
             </div>
@@ -33,8 +37,5 @@
 
         <script src="clusterize.js"></script>
         <script src="script.js"></script>
-        <script>
-            navigator.serviceWorker.register('/sw.js')
-        </script>
     </body>
 </html>

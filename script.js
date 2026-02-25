@@ -129,3 +129,26 @@ class GameGallery {
   }
 }
 new GameGallery();
+
+async function checkMessage() {
+  try {
+    const response = await fetch("/api/sigmiliarity/e/TEST");
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.text();
+
+    if (data.trim() === "working") {
+      console.log("working");
+      document.getElementById("message").style.display = "none";
+    } else {
+      console.error("error");
+    }
+  } catch (err) {
+    console.error("error", err);
+  }
+}
+
+checkMessage();
