@@ -28,7 +28,8 @@
       ["Hollow Knight", "web3", "468"],
       ["Cuphead", "web4", "465"],
       ["Untitled Goose Game", "web5", "718"],
-      ["Celeste", "web6", "623"]
+      ["Celeste", "web6", "623"],
+      ["Five Nights At Epstein's", "web7", "710"],
     ]
   },
   {
@@ -47,7 +48,6 @@
   {
     "path": "/m/web2/",
     "games": [
-      ["Five Nights At Epstein's", "five-nights-at-epsteins-s2", "710"],
       ["Ultrakill", "ultrakill", "196"],
       ["Karlson", "karlson", "542"]
     ]
