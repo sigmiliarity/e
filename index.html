@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sigma Bundler</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/png" href="https://placehold.co/320/222/white?text=%CE%A3" />
+    </head>
+    <body>
+        <header>
+            <input
+                type="text"
+                class="search-bar"
+                id="searchInput"
+                placeholder="Search games..."
+                autocomplete="off"
+            />
+            <div id="message">
+                bit.ly/alpinegaming
+            </div>
+            <div id="badgeFilter">
+                <span class="badge disabled" id="badgeFilterAll">All</span>
+            </div>
+        </header>
+
+        <div id="scrollArea" class="clusterize">
+            <div class="game-list">
+                <div id="contentArea" class="clusterize-content"></div>
+            </div>
+        </div>
+
+        <style>
+            body {
+                overflow: hidden;
+            }
+        </style>
+
+        <script src="peer.js"></script>
+        <script src="clusterize.js"></script>
+        <script src="script.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9RWXNH1HP"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-Y9RWXNH1HP');
+        </script>
+    </body>
+</html>

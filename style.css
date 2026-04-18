@@ -1,0 +1,147 @@
+:root {
+    --primary: #00f2fe;
+    --bg: #0b1120;
+    --card-bg: #1e293b;
+    --text: #f8fafc;
+    --border: rgba(0, 242, 254, 0.2);
+    --glass: rgba(11, 17, 32, 0.75);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    background-image: radial-gradient(
+        circle at top,
+        #1e293b 0%,
+        transparent 70%
+    );
+    color: var(--text);
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    backdrop-filter: blur(20px);
+    background: var(--glass);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Clusterize Area */
+.clusterize {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+/* Responsive Grid System */
+.game-list {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.game-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    aspect-ratio: 4/5;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.game-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    background: #000;
+}
+
+.game-card .title {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Badge System */
+.badge {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-card .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#badgeFilter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.b-i {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.b-i.disabled {
+    opacity: 0.2;
+    filter: grayscale(1);
+}
+
+.search-bar {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    width: 300px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar:focus {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+}

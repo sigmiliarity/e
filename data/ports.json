@@ -1,0 +1,63 @@
+[
+  {
+    "path": "/m/web/",
+    "games": [
+      ["Amanda The Adventurer", "amanda-the-adventurer", "450"],
+      ["Andy's Apple Farm", "andys-apple-farm", "426"],
+      ["Baldi's Basics Classic Remastered", "baldi-remaster", "466"],
+      ["Baldi's Basics Plus", "baldi-plus", "467"],
+      ["Bendy and The Ink Machine", "bendy", "215"],
+      ["Buckshot Roulette", "buckshot-roulette", "205"],
+      ["Deltatraveler", "deltatraveler", "560"],
+      ["Do NOT Take This Cat Home", "donottakethiscathome", "193"],
+      ["Pizza Tower", "pizza-tower", "267"],
+      ["RAFT", "raft", "457"],
+      ["R.E.P.O", "repo", "195"],
+      ["Slender: The Eight Pages", "slender", "451"],
+      ["Speed Stars", "speed-stars", "266"],
+      ["That's Not My Neighbor", "thats-not-my-neighbor", "216"],
+      ["The Man From the Window", "the-man-in-the-window", "459"],
+      ["Undertale Yellow", "undertale-yellow", "456"],
+      ["Web Fishing", "web-fishing", "423"],
+      ["Yume Nikki", "yume-nikki", "433"]
+    ]
+  },
+  {
+    "path": "/m/",
+    "games": [
+      ["Hollow Knight", "web3", "468"],
+      ["Cuphead", "web4", "465"],
+      ["Untitled Goose Game", "web5", "718"],
+      ["Celeste", "web6", "623"],
+      ["Five Nights At Epstein's", "web7", "710"],
+      ["Hollow Knight Silksong", "web10", "771"],
+      ["Slime Rancher", "web8", "591"],
+      ["Duck Life 8", "web14", "695"],
+      ["IRON LUNG", "web13", "705"],
+      ["Your Only Move Is HUSTLE", "web12", "776"],
+      ["Granny", "web11", "90"],
+      ["Brotato", "web16", "723"],
+      ["Cookie Clicker", "web19", "82"]
+    ]
+  },
+  {
+    "path": "/m/five/",
+    "games": [
+      ["FNAF 1", "1", "38"],
+      ["FNAF 2", "2", "39"],
+      ["FNAF 3", "3", "40"],
+      ["FNAF 4", "4", "41"],
+      ["FNAF Pizzeria Simulator", "ps", "191"],
+      ["FNAF World", "w", "190"],
+      ["FNAF Sister Location", "sl", "185"],
+      ["FNAF Ultimate Custom Night", "ucn", "192"]
+    ]
+  },
+  {
+    "path": "/m/web2/",
+    "games": [
+      ["Ultrakill", "ultrakill", "196"],
+      ["Karlson", "karlson", "542"]
+    ]
+  }
+]
