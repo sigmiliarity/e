@@ -98,6 +98,20 @@ class GameGallery {
 
     if (this.c) this.c.destroy(true);
     this.c = new Clusterize({ rows, scrollId: "scrollArea", contentId: "contentArea", tag: "div" });
+    
+    // Track game clicks in Google Analytics
+    document.getElementById("contentArea")?.addEventListener("click", (e) => {
+      const gameCard = e.target.closest(".game-card");
+      if (gameCard) {
+        const gameTitle = gameCard.querySelector(".title")?.textContent || "Unknown";
+        const gameBadge = gameCard.querySelector(".badge")?.textContent || "DEFAULT";
+        gtag('event', 'game_clicked', {
+          game_name: gameTitle,
+          game_type: gameBadge,
+          game_url: gameCard.href
+        });
+      }
+    });
   }
 }
 
