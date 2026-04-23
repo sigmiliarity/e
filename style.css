@@ -35,6 +35,10 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
+header #message a {
+    color: white;
+}
+
 /* Clusterize Area */
 .clusterize {
     height: calc(100vh - 80px);
