@@ -2,7 +2,7 @@ class GameGallery {
   constructor() {
     this.g = []; // Games list
     this.b = []; // Badges/Sources list
-    this.d = new Set(["OLD"]); // Disabled filters
+    this.d = new Set(["OLD", "YT-PLAYABLES"]); // Disabled filters
     this.s = document.getElementById("searchInput");
     this.f = document.getElementById("badgeFilter");
     this.init();
