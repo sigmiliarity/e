@@ -20,7 +20,7 @@
   {
     "name": "YT-PLAYABLES",
     "location": "yt",
-    "url:": "'/m/web23/' + game[2] + '/'",
+    "url": "group.path + game[2] + '/'",
     "img": "game[1]"
   }
 ]
