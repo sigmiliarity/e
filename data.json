@@ -16,5 +16,11 @@
     "location": "custom",
     "url": "game[1]",
     "img": "game[2]"
+  },
+  {
+    "name": "YT-PLAYABLES",
+    "location": "yt",
+    "url:": "'/m/web23/' + game[2] + '/'",
+    "img": "game[1]"
   }
 ]

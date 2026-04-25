@@ -45,6 +45,11 @@
         "Deltarune Chapter 4",
         "/m/delta2/4",
         "https://api.codetabs.com/v1/proxy/?quest=https://cdn2.steamgriddb.com/icon_thumb/af93c9db0e2bfa76554dfbdde8426e81.png"
+      ],
+      [
+        "Modded Geometry Dash",
+        "/m/web22/",
+        "https://github.com/sigmiliarity/web22/blob/main/assets/logo.png?raw=true"
       ]
     ]
   }
