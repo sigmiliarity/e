@@ -36,9 +36,10 @@ class GameGallery {
     }));
 
     // 2. Deduplicate by normalized title and sort alphabetically
+    const seen = new Set();
     this.g = this.g.filter(x => {
       const k = x.t?.toLowerCase().replace(/[^a-z0-9]/g, "");
-      return k;
+      return k && !seen.has(k) && seen.add(k);
     }).sort((a, b) => a.t.localeCompare(b.t));
 
     // 3. Setup UI & Event Listeners
