@@ -48,8 +48,8 @@
       ],
       [
         "Modded Geometry Dash",
-        "/m/web22/",
-        "https://github.com/sigmiliarity/web22/blob/main/assets/logo.png?raw=true"
+        "/m/web22",
+        "https://raw.githubusercontent.com/sigmiliarity/web22/refs/heads/main/assets/logo.png"
       ]
     ]
   }
