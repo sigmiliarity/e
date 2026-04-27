@@ -21,6 +21,6 @@
     "name": "YT-PLAYABLES",
     "location": "yt",
     "url": "group.path + game[2] + '/'",
-    "img": "game[1]"
+    "img": "'https://api.codetabs.com/v1/proxy?quest=' + game[1]"
   }
 ]
