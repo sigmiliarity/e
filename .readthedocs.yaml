@@ -5,9 +5,8 @@ build:
   tools:
     python: "3.10"
   jobs:
-    # Use 'build' instead of 'post_build' to take full control
-    build:
-      html:
-        - mkdir -p $READTHEDOCS_OUTPUT/html/
-        # The asterisk (*) avoids copying the parent directory into itself
-        - cp -rt $READTHEDOCS_OUTPUT/html/ ./*
+    post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
+      # Use a shell glob to exclude the _readthedocs directory
+      # This tells the shell: "Copy everything that doesn't start with _"
+      - cp -rt $READTHEDOCS_OUTPUT/html/ [!_]*
