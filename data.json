@@ -7,6 +7,12 @@
   },
   {
     "name": "DEFAULT",
+    "location": "old2",
+    "url": "group.path + game[1] + '/'",
+    "img": "group.path + game[1] + '/' + (game[2] || group.image)"
+  },
+  {
+    "name": "DEFAULT",
     "location": "ports",
     "url": "group.path + game[1] + '/'",
     "img": "'https://raw.githubusercontent.com/gn-math/covers/refs/heads/main/' + game[2] + '.png',"

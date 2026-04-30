@@ -2,14 +2,14 @@
   {
     "games": [
       [
-        "Google AI",
+        " Google AI",
         "https://google.com/search?udm=%2050",
         "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg"
       ],
       [
-        "Σ Official Chat",
+        "Σ Chat",
         "/m/chat/",
-        "https://placehold.co/320/222/white?text=Σ"
+        "https://placehold.co/320/137/white?text=Σ"
       ],
       [
         "Skyward (no popup)",
@@ -50,6 +50,21 @@
         "Modded Geometry Dash",
         "/m/web22/",
         "https://raw.githubusercontent.com/sigmiliarity/web22/refs/heads/main/assets/logo.png"
+      ],
+      [
+        "  Σ Official Music",
+        "/m/web24/",
+        "https://placehold.co/320/222/yellow?text=Σ"
+      ],
+      [
+        "  Σ Official GOOGLE FORM",
+        "https://forms.gle/o4YQvkdQqf2F4HaW9",
+        "https://placehold.co/320/222/pink?text=Σ"
+      ],
+      [
+        " Square Game",
+        "/m/web25/",
+        "/m/web25/favicon.png"
       ]
     ]
   }

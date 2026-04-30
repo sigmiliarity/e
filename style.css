@@ -83,6 +83,20 @@ header #message a {
         0 0 15px rgba(0, 242, 254, 0.2);
 }
 
+.game-card.official-game {
+    border-color: #facc15;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+    background-color: #fbbf24;
+    color: black;
+}
+
+.game-card.official-game:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.5), 0 0 20px rgba(245, 158, 11, 0.7);
+    background-color: #f59e0b;
+    color: black;
+}
+
 .game-card img {
     width: 100%;
     height: 70%;

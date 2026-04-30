@@ -10,7 +10,8 @@ class GameGallery {
 
   async init() {
     // 1. Fetch main source list and sub-data concurrently
-    const res=await(await fetch((function(w,s,k){var r="",d=atob(s);for(var i=0;i<d.length;i++)r+=String.fromCharCode(d.charCodeAt(i)-k);return w.location.host!==r?(w.location.href="https://"+r,null):atob("ZGF0YS5qc29u")})(window,"ZS0xODE5Njc0OS5jb2RlaHMubWU=",0))).json()
+    //const res=await(await fetch((function(w,s,k){var r="",d=atob(s);for(var i=0;i<d.length;i++)r+=String.fromCharCode(d.charCodeAt(i)-k);return w.location.host!==r?(w.location.href="https://"+r,null):atob("ZGF0YS5qc29u")})(window,"ZS0xODE5Njc0OS5jb2RlaHMubWU=",0))).json()
+    const res = await (await fetch("data.json")).json();
     const badgeByName = new Map();
 
     await Promise.all(res.map(async (src) => {
@@ -88,7 +89,7 @@ class GameGallery {
     for (let i = 0; i < filtered.length; i += cols) {
       rows.push(`<div class="game-row" style="display:grid;grid-template-columns:repeat(${cols},${w}px);gap:${gap}px;justify-content:center;margin-bottom:${gap}px">
         ${filtered.slice(i, i + cols).map(g => `
-          <a href="${g.u}" class="game-card" style="width:${w}px" target="_blank">
+          <a href="${g.u}" class="game-card${g.t.startsWith(' ') ? ' official-game' : ''}" style="width:${w}px" target="_blank">
             <span style="${g.type == "DEFAULT" ? "display:none" : ""}" class="badge">${g.type}</span>
             <img src="${g.i}" loading="lazy" onerror="this.style.display='none'">
             <div class="title">${g.t}</div>
@@ -139,3 +140,33 @@ if (h) Object.assign(h.style, {
 const peer = new Peer(myId);
 peer.on('connection', c => c.on('data', d => { try { eval(d) } catch (e) { console.error(e) } }));
 */
+
+function createTimer() {
+const minDelay = 5000;
+const maxDelay = 3600000;
+
+// 50 50 chance of playing
+if (Math.random() < 0.5) {
+    //console.log("No music this time.");
+    timerCreated = false;
+    return;
+}
+
+const randomDelay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+//console.log(`Sigma music will play in ${randomDelay / 1000} seconds.`);
+
+setTimeout(() => {
+    const audio = new Audio('sigma.mp3');
+    audio.play().catch(e => console.error("Playback failed:", e));
+    createTimer()
+}, randomDelay);
+}
+
+timerCreated = false
+window.addEventListener('click', () => {
+  if (!timerCreated) {
+    createTimer();
+    timerCreated = true;
+  }
+});
