@@ -1,11 +1,13 @@
 version: 2
 
 build:
-    os: ubuntu-20.04
-    tools:
-      python: "3.8"
-    apt_packages:
-      - rsync
-    commands: 
-      - mkdir --parents _readthedocs/html/
-      - rsync -av --exclude='_readthedocs' . _readthedocs/html/
+  os: ubuntu-22.04
+  tools:
+    python: "3.10"
+  jobs:
+    # Use 'build' instead of 'post_build' to take full control
+    build:
+      html:
+        - mkdir -p $READTHEDOCS_OUTPUT/html/
+        # The asterisk (*) avoids copying the parent directory into itself
+        - cp -rt $READTHEDOCS_OUTPUT/html/ ./*
