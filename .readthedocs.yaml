@@ -5,8 +5,10 @@ build:
   tools:
     python: "3.10"
   jobs:
-    post_build:
-      - mkdir -p $READTHEDOCS_OUTPUT/html/
-      # Use a shell glob to exclude the _readthedocs directory
-      # This tells the shell: "Copy everything that doesn't start with _"
-      - cp -rt $READTHEDOCS_OUTPUT/html/ [!_]*
+    build:
+      html:
+        - mkdir -p $READTHEDOCS_OUTPUT/html/
+        - cp -rt $READTHEDOCS_OUTPUT/html/ [!_]*
+
+# Explicitly tell RTD you aren't using Sphinx or MkDocs
+formats: []
