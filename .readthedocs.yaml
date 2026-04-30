@@ -6,4 +6,4 @@ build:
       python: "3.8"
     commands: 
       - mkdir --parents _readthedocs/html/
-      - cp --recursive * _readthedocs/html/
+      - rsync -av --exclude='_readthedocs' . _readthedocs/html/
