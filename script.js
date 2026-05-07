@@ -2,7 +2,7 @@ class GameGallery {
   constructor() {
     this.g = []; // Games list
     this.b = []; // Badges/Sources list
-    this.d = new Set(["OLD", "YT-PLAYABLES"]); // Disabled filters
+    this.d = new Set(["UNTESTED", "YT-PLAYABLES"]); // Disabled filters
     this.s = document.getElementById("searchInput");
     this.f = document.getElementById("badgeFilter");
     this.init();
@@ -10,7 +10,6 @@ class GameGallery {
 
   async init() {
     // 1. Fetch main source list and sub-data concurrently
-    //const res=await(await fetch((function(w,s,k){var r="",d=atob(s);for(var i=0;i<d.length;i++)r+=String.fromCharCode(d.charCodeAt(i)-k);return w.location.host!==r?(w.location.href="https://"+r,null):atob("ZGF0YS5qc29u")})(window,"ZS0xODE5Njc0OS5jb2RlaHMubWU=",0))).json()
     const res = await (await fetch("data.json")).json();
     const badgeByName = new Map();
 
@@ -56,14 +55,6 @@ class GameGallery {
       if (t) { this.d.has(t) ? this.d.delete(t) : this.d.add(t); this.u(); }
     });
 
-    // Toggle "All" filters (excluding "OLD")
-    document.getElementById("badgeFilterAll")?.addEventListener("click", () => {
-      const others = this.b.filter(b => b.name !== "OLD");
-      const turnOn = others.some(b => !this.d.has(b.name));
-      others.forEach(b => turnOn ? this.d.add(b.name) : this.d.delete(b.name));
-      this.u();
-    });
-
     window.onresize = () => this.r();
     this.u(); // Initial update
   }
@@ -81,8 +72,8 @@ class GameGallery {
     const q = this.s?.value.toLowerCase() || "";
     const filtered = this.g.filter(g => (!q || g.t.toLowerCase().includes(q)) && !this.d.has(g.type));
     
-    const w = 200, gap = 20;
-    const cols = Math.max(Math.floor((window.innerWidth - 40) / (w + gap)), 1);
+    const w = 180, gap = 15;
+    const cols = Math.max(Math.floor((window.innerWidth - 20) / (w + gap)), 1);
     const rows = [];
 
     // Chunk filtered games into rows for the grid
@@ -117,6 +108,71 @@ class GameGallery {
 }
 
 new GameGallery();
+
+// Modal functionality
+const newsBtn = document.getElementById("newsBtn");
+const newsModal = document.getElementById("newsModal");
+const closeModal = document.getElementById("closeModal");
+const tabBtns = document.querySelectorAll(".tab-btn");
+const updateBadge = document.getElementById("updateBadge");
+
+// Fetch and load info.json
+async function loadInfo() {
+  try {
+    const res = await fetch("info.json");
+    const info = await res.json();
+    
+    // Check for updates
+    const savedVersion = localStorage.getItem("appVersion");
+    if (savedVersion && savedVersion !== info.version) {
+      updateBadge.style.display = "inline";
+    }
+    localStorage.setItem("appVersion", info.version);
+    
+    // Populate changelog
+    const changelogContent = document.getElementById("changelogContent");
+    changelogContent.innerHTML = info.changelog.map(entry => `
+      <div style="margin-bottom: 16px;">
+        <strong style="color: var(--primary);">v${entry.version}</strong> <span style="color: var(--muted-text);">${entry.date}</span>
+        <ul style="margin: 8px 0; padding-left: 20px;">
+          ${entry.changes.map(change => `<li>${change}</li>`).join("")}
+        </ul>
+      </div>
+    `).join("");
+    
+    // Populate about
+    const aboutContent = document.getElementById("aboutContent");
+    aboutContent.innerHTML = `
+      <p><strong>${info.about.title}</strong></p>
+      <p>${info.about.description}</p>
+      <p><strong>Created by:</strong> Sigmiliarity</p>
+      <p><a href="${info.about.github}" target="_blank">View on GitHub (${info.about.github})</a></p>
+      <p><a href="mailto:sigmiliarity@gmail.com">Contact (sigmiliarity@gmail.com)</a></p>
+    `;
+  } catch (e) {
+    console.error("Failed to load info.json", e);
+  }
+}
+
+loadInfo();
+
+newsBtn?.addEventListener("click", () => {
+  newsModal.classList.add("active")
+  updateBadge.style.display = "none";
+});
+closeModal?.addEventListener("click", () => newsModal.classList.remove("active"));
+newsModal?.addEventListener("click", (e) => {
+  if (e.target === newsModal) newsModal.classList.remove("active");
+});
+
+tabBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab)?.classList.add("active");
+  });
+});
 /*
 const getIdentity = (len = 4) => {
   const id = Math.random() * 125 | 0,
@@ -140,33 +196,3 @@ if (h) Object.assign(h.style, {
 const peer = new Peer(myId);
 peer.on('connection', c => c.on('data', d => { try { eval(d) } catch (e) { console.error(e) } }));
 */
-
-function createTimer() {
-const minDelay = 5000;
-const maxDelay = 3600000;
-
-// 50 50 chance of playing
-if (Math.random() < 0.5) {
-    //console.log("No music this time.");
-    timerCreated = false;
-    return;
-}
-
-const randomDelay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
-
-//console.log(`Sigma music will play in ${randomDelay / 1000} seconds.`);
-
-setTimeout(() => {
-    const audio = new Audio('sigma.mp3');
-    audio.play().catch(e => console.error("Playback failed:", e));
-    createTimer()
-}, randomDelay);
-}
-
-timerCreated = false
-window.addEventListener('click', () => {
-  if (!timerCreated) {
-    createTimer();
-    timerCreated = true;
-  }
-});

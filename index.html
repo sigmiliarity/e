@@ -5,7 +5,6 @@
         <title>Sigma Bundler</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="icon" type="image/png" href="icon.svg" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     </head>
     <body>
         <header>
@@ -16,15 +15,39 @@
                 placeholder="Search games..."
                 autocomplete="off"
             />
-            <div id="message">
+            <button id="message" class="news-btn" onclick="alert('woah you clicked the button you\'re so sigma')">
                 bit.ly/alpinegaming
-                <a href="https://github.com/sigmiliarity/e" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:sigmiliarity@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div id="badgeFilter">
-                <span class="badge disabled" id="badgeFilterAll">All</span>
-            </div>
+            </button>
+            <button id="newsBtn" class="news-btn">
+                News
+                <span id="updateBadge" class="update-badge" style="display:none;">●</span>
+            </button>
+            <div id="badgeFilter"></div>
         </header>
+
+        <!-- News Modal -->
+        <div id="newsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Updates</h2>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-tab="changelog">Changelog</button>
+                    <button class="tab-btn" data-tab="about">About</button>
+                </div>
+                <div class="modal-body">
+                    <div id="changelog" class="tab-content active">
+                        <h3>Changelog</h3>
+                        <div id="changelogContent"></div>
+                    </div>
+                    <div id="about" class="tab-content">
+                        <h3>About</h3>
+                        <div id="aboutContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="scrollArea" class="clusterize">
             <div class="game-list">
@@ -32,13 +55,6 @@
             </div>
         </div>
 
-        <style>
-            body {
-                overflow: hidden;
-            }
-        </style>
-
-        <script src="peer.js"></script>
         <script src="clusterize.js"></script>
         <script src="script.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9RWXNH1HP"></script>

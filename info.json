@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "lastUpdated": "2026-05-06",
+  "changelog": [
+    {
+      "version": "0.1",
+      "date": "2026-05-06",
+      "changes": [
+        "added news system",
+        "super cool new website design",
+        "renamed \"OLD\" to \"UNTESTED\" as I haven't personally played them; they may or may not work",
+        "moved a bunch of games from \"UNTESTED\" to \"DEFAULT\" after playing them and confirming they work"
+      ]
+    }
+  ],
+  "about": {
+    "title": "Sigma Bundler",
+    "description": "A curated collection of playable games and experiences.",
+    "github": "https://github.com/sigmiliarity/e"
+  }
+}

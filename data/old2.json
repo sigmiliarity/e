@@ -4,7 +4,19 @@
         "games": [
             ["Gladihoppers", "gladihoppers", "cover.png"],
             ["Bitlife", "bitlife", "bitlife.png"],
-            ["Polytrack", "polytrack", "cover.jpg"]
+            ["Polytrack", "polytrack", "cover.jpg"],
+            ["Temple Run 2", "templerun2", "img/icons/icon-128x128.png"],
+            ["Funny Shooter 2", "funnyshooter2", "894abba63a6b23fed823f404831f444f.jpeg"],
+            ["Getaway Shootout", "getawayshooter", "Untitled.jpeg"],
+            ["Rooftop Snipers", "rooftopsnipers", "logo.png"],
+            ["Superhot", "superhot", "icon.png"]
+        ]
+    },
+    {
+        "path": "/m/a1/",
+        "games": [
+            ["Backflip Dive 3D", "backflip-dive-3d", "cover.png"],
+            ["Burrito Bison Launch Libre", "burrito-bison-ll", "cover.png"]
         ]
     }
 ]

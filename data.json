@@ -1,6 +1,6 @@
 [
   {
-    "name": "OLD",
+    "name": "UNTESTED",
     "location": "old",
     "url": "group.path + game[1] + '/'",
     "img": "group.path + game[1] + '/' + (game[2] || group.image)"
