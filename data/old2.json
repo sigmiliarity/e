@@ -18,5 +18,11 @@
             ["Backflip Dive 3D", "backflip-dive-3d", "cover.png"],
             ["Burrito Bison Launch Libre", "burrito-bison-ll", "cover.png"]
         ]
+    },
+    {
+        "path": "/m/a6/",
+        "games": [
+            ["Guess the Kitty", "guess-kitty", "logo.jpg"]
+        ]
     }
 ]
