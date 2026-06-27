@@ -8,14 +8,14 @@
   {
     "name": "DEFAULT",
     "location": "old2",
-    "url": "group.path + game[1] + '/'",
-    "img": "group.path + game[1] + '/' + (game[2] || group.image)"
+    "url": "'/m/' + group.path + game[1] + '/'",
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/' + group.path + '/refs/heads/main/' + game[1] + '/' + (game[2] || group.image)"
   },
   {
     "name": "DEFAULT",
     "location": "ports",
     "url": "group.path + game[1] + '/'",
-    "img": "'https://raw.githubusercontent.com/gn-math/covers/refs/heads/main/' + game[2] + '.png',"
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/webC/refs/heads/main/' + game[2] + '.png'"
   },
   {
     "name": "DEFAULT",
@@ -26,7 +26,7 @@
   {
     "name": "YT-PLAYABLES",
     "location": "yt",
-    "url": "group.path + game[2] + '/'",
-    "img": "'https://api.codetabs.com/v1/proxy?quest=' + game[1]"
+    "url": "group.path + game[1] + '/'",
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/web23i/refs/heads/main/' + game[1] + '.png'"
   }
 ]

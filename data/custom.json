@@ -69,17 +69,17 @@
       [
         " Square Game",
         "/m/web25/",
-        "/m/web25/favicon.png"
+        "https://raw.githubusercontent.com/sigmiliarity/web25/refs/heads/main/favicon.png"
       ],
       [
         "Slender Multiplayer",
         "/m/web26/",
-        "/m/web26/icon-256.png"
+        "https://raw.githubusercontent.com/sigmiliarity/web26/refs/heads/main/icon-256.png"
       ],
       [
         "Half Life",
         "/m/web28/",
-        "/m/web28/xd.png"
+        "https://raw.githubusercontent.com/sigmiliarity/web28/refs/heads/main/xd.png"
       ],
       [
         "Balatro",
@@ -89,12 +89,22 @@
       [
         "Duck Life 7",
         "/m/web16/duck%20life%20battle/",
-        "/m/web16/duck%20life%20battle/TemplateData/favicon.ico"
+        "https://raw.githubusercontent.com/sigmiliarity/web16/refs/heads/main/duck%20life%20battle/TemplateData/favicon.ico"
       ],
       [
         "Spelunky (godot fake but good)",
         "/m/web32/",
-        "/m/web32/GDSpelunky.icon.png"
+        "https://raw.githubusercontent.com/sigmiliarity/web32/refs/heads/main/GDSpelunky.icon.png"
+      ],
+      [
+        "Just Shapes & Beats",
+        "/m/web34/",
+        "https://raw.githubusercontent.com/sigmiliarity/web34/refs/heads/main/icon.jpg"
+      ],
+      [
+        "Totally Accurate Battle Simulator",
+        "/m/web33/",
+        "https://raw.githubusercontent.com/sigmiliarity/web33/refs/heads/main/icon.ico"
       ]
     ]
   }
