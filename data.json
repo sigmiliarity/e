@@ -1,15 +1,27 @@
 [
   {
     "name": "UNTESTED",
+    "location": "olds",
+    "url": "'/m/a2/semag/' + game[1] + '/'",
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/' + game[1] + '/' + game[2]"
+  },
+  {
+    "name": "UNTESTED",
+    "location": "oldp",
+    "url": "'/m/a3/projects/' + game[1] + '/'",
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/a3/refs/heads/main/projects/' + game[1] + '/' + game[2]"
+  },
+  {
+    "name": "UNTESTED",
     "location": "old",
-    "url": "group.path + game[1] + '/'",
-    "img": "group.path + game[1] + '/' + (game[2] || group.image)"
+    "url": "'/m/' + group.path + game[1] + '/'",
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/' + group.path + 'refs/heads/main/' + game[1] + '/' + (game[2] || group.image)"
   },
   {
     "name": "DEFAULT",
     "location": "old2",
     "url": "'/m/' + group.path + game[1] + '/'",
-    "img": "'https://raw.githubusercontent.com/sigmiliarity/' + group.path + '/refs/heads/main/' + game[1] + '/' + (game[2] || group.image)"
+    "img": "'https://raw.githubusercontent.com/sigmiliarity/' + group.path + '/refs/heads/main/' + game[1] + '/' + game[2]"
   },
   {
     "name": "DEFAULT",
@@ -24,7 +36,7 @@
     "img": "game[2]"
   },
   {
-    "name": "YT-PLAYABLES",
+    "name": "UNTESTED",
     "location": "yt",
     "url": "group.path + game[1] + '/'",
     "img": "'https://raw.githubusercontent.com/sigmiliarity/web23i/refs/heads/main/' + game[1] + '.png'"

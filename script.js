@@ -2,14 +2,14 @@ class GameGallery {
   constructor() {
     this.g = []; // Games list
     this.b = []; // Badges/Sources list
-    this.d = new Set(["UNTESTED", "YT-PLAYABLES"]); // Disabled filters
+    this.d = new Set(["UNTESTED", ""]); // Disabled filters
     this.s = document.getElementById("searchInput");
     this.f = document.getElementById("badgeFilter");
+    this.expandedGroups = new Set(); // Tracks open/expanded group IDs
     this.init();
   }
 
   async init() {
-    // 1. Fetch main source list and sub-data concurrently
     const res = await (await fetch("data.json")).json();
     const badgeByName = new Map();
 
@@ -23,43 +23,77 @@ class GameGallery {
 
       const data = await (await fetch(`data/${src.location}.json`)).json();
       
-      // Templating helper: replaces placeholders like group.path or game[0]
       const parse = (s, grp, gm) => s
         .replace(/group\.path/g, grp.path || "").replace(/group\.image/g, grp.image || "")
         .replace(/game\[(\d+)\]/g, (_, i) => gm[i] || "")
         .replace(/\((.*?)\|\|(.*?)\)/g, (_, a, b) => a.trim() || b.trim())
         .replace(/['"+\s]/g, "").replace(/[,;]$/, "");
 
-      data.forEach(grp => (grp.games || []).forEach(gm => this.g.push({
-        t: gm[0], u: parse(src.url, grp, gm), i: parse(src.img, grp, gm), type: src.name
-      })));
+      data.forEach(item => {
+        if (item.games && !item.name) {
+          item.games.forEach(gm => this.g.push({
+            t: gm[0], u: parse(src.url, item, gm), i: parse(src.img, item, gm), type: src.name, isGroup: false
+          }));
+        }
+
+        if (item.groups) {
+          item.groups.forEach((grp, gIdx) => {
+            const groupName = grp.name ? grp.name.trim() : `Group ${gIdx}`;
+            const groupId = `${src.name}_grp_${gIdx}_${groupName}`;
+            
+            const groupGames = (grp.games || []).map(gm => ({
+              t: gm[0],
+              u: parse(src.url, grp, gm),
+              i: parse(src.img, grp, gm),
+              type: src.name,
+              isSubGame: true
+            }));
+
+            this.g.push({
+              id: groupId,
+              t: groupName,
+              i: grp.img || parse(src.img, grp, []),
+              type: src.name,
+              isGroup: true,
+              games: groupGames
+            });
+          });
+        }
+      });
     }));
 
-    // 2. Deduplicate by normalized title and sort alphabetically
+    // Deduplicate top-level items and sort: Golden games -> Groups -> Standard games -> Alphabetical
     const seen = new Set();
     this.g = this.g.filter(x => {
       const k = x.t?.toLowerCase().replace(/[^a-z0-9]/g, "");
       return k && !seen.has(k) && seen.add(k);
-    }).sort((a, b) => a.t.localeCompare(b.t));
+    }).sort((a, b) => {
+      const aIsGolden = !a.isGroup && a.t.startsWith(' ');
+      const bIsGolden = !b.isGroup && b.t.startsWith(' ');
 
-    // 3. Setup UI & Event Listeners
+      if (aIsGolden && !bIsGolden) return -1;
+      if (!aIsGolden && bIsGolden) return 1;
+      if (a.isGroup && !b.isGroup) return -1;
+      if (!a.isGroup && b.isGroup) return 1;
+      
+      return a.t.localeCompare(b.t);
+    });
+
     if (this.f) this.f.innerHTML = this.b.map(b => 
       `<span class="badge b-i" data-t="${b.name}">${b.name}</span>`
     ).join("");
     
     this.s?.addEventListener("input", () => this.r());
     
-    // Toggle individual filters
     this.f?.addEventListener("click", (e) => {
       const t = e.target.dataset.t;
       if (t) { this.d.has(t) ? this.d.delete(t) : this.d.add(t); this.u(); }
     });
 
     window.onresize = () => this.r();
-    this.u(); // Initial update
+    this.u();
   }
 
-  // Update visual state of filter badges
   u() {
     document.querySelectorAll(".b-i").forEach(el => 
       el.classList.toggle("disabled", this.d.has(el.dataset.t))
@@ -67,47 +101,103 @@ class GameGallery {
     this.r();
   }
 
-  // Render the grid using Clusterize.js for performance
   r() {
     const q = this.s?.value.toLowerCase() || "";
-    const filtered = this.g.filter(g => (!q || g.t.toLowerCase().includes(q)) && !this.d.has(g.type));
+    const filtered = [];
     
+    this.g.forEach(item => {
+      if (this.d.has(item.type)) return;
+
+      if (item.isGroup) {
+        const groupMatches = !q || item.t.toLowerCase().includes(q);
+        const matchingSubGames = item.games.filter(sub => !q || sub.t.toLowerCase().includes(q));
+
+        if (groupMatches || matchingSubGames.length > 0) {
+          filtered.push({
+            ...item,
+            games: groupMatches ? item.games : matchingSubGames
+          });
+        }
+      } else if (!q || item.t.toLowerCase().includes(q)) {
+        filtered.push(item);
+      }
+    });
+    
+    const renderList = [];
+    filtered.forEach(item => {
+      renderList.push(item);
+      const shouldExpand = (q && q.trim().length > 0) || this.expandedGroups.has(item.id);
+      if (item.isGroup && shouldExpand) {
+        item.games.forEach(subGame => renderList.push({ ...subGame, parentId: item.id }));
+      }
+    });
+
     const w = 180, gap = 15;
     const cols = Math.max(Math.floor((window.innerWidth - 20) / (w + gap)), 1);
     const rows = [];
 
-    // Chunk filtered games into rows for the grid
-    for (let i = 0; i < filtered.length; i += cols) {
+    for (let i = 0; i < renderList.length; i += cols) {
       rows.push(`<div class="game-row" style="display:grid;grid-template-columns:repeat(${cols},${w}px);gap:${gap}px;justify-content:center;margin-bottom:${gap}px">
-        ${filtered.slice(i, i + cols).map(g => `
-          <a href="${g.u}" class="game-card${g.t.startsWith(' ') ? ' official-game' : ''}" style="width:${w}px" target="_blank">
-            <span style="${g.type == "DEFAULT" ? "display:none" : ""}" class="badge">${g.type}</span>
-            <img src="${g.i}" loading="lazy" onerror="this.style.display='none'">
-            <div class="title">${g.t}</div>
-          </a>`).join("")}
+        ${renderList.slice(i, i + cols).map(g => {
+          if (g.isGroup) {
+            const isExpanded = (q && q.trim().length > 0) || this.expandedGroups.has(g.id);
+            return `
+              <div class="game-card group-card ${isExpanded ? 'expanded' : ''}" data-group-id="${g.id}" style="width:${w}px; cursor:pointer;">
+                <span style="${g.type == "DEFAULT" ? "display:none" : ""}" class="badge">${g.type}</span>
+                <img src="${g.i}" loading="lazy" onerror="this.style.display='none'">
+                <div class="title">📁 ${g.t} (${g.games.length})</div>
+              </div>`;
+          } else {
+            return `
+              <a href="${g.u}" class="game-card${g.t.startsWith(' ') ? ' official-game' : ''}${g.isSubGame ? ' sub-game-card' : ''}" style="width:${w}px" target="_blank">
+                <span style="${g.type == "DEFAULT" ? "display:none" : ""}" class="badge">${g.type}</span>
+                <img src="${g.i}" loading="lazy" onerror="this.style.display='none'">
+                <div class="title">${g.t}</div>
+              </a>`;
+          }
+        }).join("")}
       </div>`);
     }
 
+    const scrollArea = document.getElementById("scrollArea");
+    const currentScrollTop = scrollArea ? scrollArea.scrollTop : 0;
+
     if (this.c) this.c.destroy(true);
     this.c = new Clusterize({ rows, scrollId: "scrollArea", contentId: "contentArea", tag: "div" });
-    
-    // Track game clicks in Google Analytics
-    document.getElementById("contentArea")?.addEventListener("click", (e) => {
-      const gameCard = e.target.closest(".game-card");
-      if (gameCard) {
-        const gameTitle = gameCard.querySelector(".title")?.textContent || "Unknown";
-        const gameBadge = gameCard.querySelector(".badge")?.textContent || "DEFAULT";
-        gtag('event', 'game_clicked', {
-          game_name: gameTitle,
-          game_type: gameBadge,
-          game_url: gameCard.href
-        });
-      }
-    });
+
+    if (scrollArea) scrollArea.scrollTop = currentScrollTop;
   }
 }
 
-new GameGallery();
+// Global delegated event listener for container content clicks
+document.getElementById("contentArea")?.addEventListener("click", (e) => {
+  const groupCard = e.target.closest(".group-card");
+  if (groupCard) {
+    const groupId = groupCard.dataset.groupId;
+    if (window.gameGalleryInstance) {
+      if (window.gameGalleryInstance.expandedGroups.has(groupId)) {
+        window.gameGalleryInstance.expandedGroups.delete(groupId);
+      } else {
+        window.gameGalleryInstance.expandedGroups.add(groupId);
+      }
+      window.gameGalleryInstance.r();
+    }
+    return;
+  }
+
+  const gameCard = e.target.closest(".game-card:not(.group-card)");
+  if (gameCard) {
+    const gameTitle = gameCard.querySelector(".title")?.textContent || "Unknown";
+    const gameBadge = gameCard.querySelector(".badge")?.textContent || "DEFAULT";
+    gtag('event', 'game_clicked', {
+      game_name: gameTitle,
+      game_type: gameBadge,
+      game_url: gameCard.href
+    });
+  }
+});
+
+window.gameGalleryInstance = new GameGallery();
 
 // Modal functionality
 const newsBtn = document.getElementById("newsBtn");
@@ -116,20 +206,17 @@ const closeModal = document.getElementById("closeModal");
 const tabBtns = document.querySelectorAll(".tab-btn");
 const updateBadge = document.getElementById("updateBadge");
 
-// Fetch and load info.json
 async function loadInfo() {
   try {
     const res = await fetch("info.json");
     const info = await res.json();
     
-    // Check for updates
     const savedVersion = localStorage.getItem("appVersion");
     if (savedVersion && savedVersion !== info.version) {
       updateBadge.style.display = "inline";
     }
     localStorage.setItem("appVersion", info.version);
     
-    // Populate changelog
     const changelogContent = document.getElementById("changelogContent");
     changelogContent.innerHTML = info.changelog.map(entry => `
       <div style="margin-bottom: 16px;">
@@ -140,7 +227,6 @@ async function loadInfo() {
       </div>
     `).join("");
     
-    // Populate about
     const aboutContent = document.getElementById("aboutContent");
     aboutContent.innerHTML = `
       <p><strong>${info.about.title}</strong></p>
@@ -157,7 +243,7 @@ async function loadInfo() {
 loadInfo();
 
 newsBtn?.addEventListener("click", () => {
-  newsModal.classList.add("active")
+  newsModal.classList.add("active");
   updateBadge.style.display = "none";
 });
 closeModal?.addEventListener("click", () => newsModal.classList.remove("active"));
@@ -173,26 +259,3 @@ tabBtns.forEach(btn => {
     document.getElementById(btn.dataset.tab)?.classList.add("active");
   });
 });
-/*
-const getIdentity = (len = 4) => {
-  const id = Math.random() * 125 | 0,
-    colors = ["red", "yellow", "blue", "black", "white", "green"],
-    emojis = [..."🟥🟨🟦⬛⬜🟩"],
-    res = Array.from({ length: len }, (_, i) => (id / 6 ** i | 0) % 6).reverse();
-
-  return [id + "", res.map(i => emojis[i]).join(""), res.map(i => colors[i])];
-};
-
-const [myId, icon, cls] = getIdentity(), h = document.querySelector('header');
-document.title = icon;
-
-if (h) Object.assign(h.style, {
-  borderBottom: "6px solid",
-  borderImage: `linear-gradient(90deg,${cls[0]} 25%,${cls[1]} 25% 50%,${cls[2]} 50% 75%,${cls[3]} 75% 100%)1`,
-  background: "#ffffff0d",
-  backdropFilter: "blur(5px)"
-});
-
-const peer = new Peer(myId);
-peer.on('connection', c => c.on('data', d => { try { eval(d) } catch (e) { console.error(e) } }));
-*/

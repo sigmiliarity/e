@@ -19,7 +19,8 @@
       ["The Man From the Window", "the-man-in-the-window", "459"],
       ["Undertale Yellow", "undertale-yellow", "456"],
       ["Web Fishing", "web-fishing", "423"],
-      ["Yume Nikki", "yume-nikki", "433"]
+      ["Yume Nikki", "yume-nikki", "433"],
+      ["OMORI", "omori-fixed", "427"]
     ]
   },
   {
@@ -32,28 +33,34 @@
       ["Five Nights At Epstein's", "web7", "710"],
       ["Hollow Knight Silksong", "web10", "771"],
       ["Slime Rancher", "web8", "591"],
-      ["Duck Life 8", "web14", "695"],
       ["IRON LUNG", "web13", "705"],
       ["Your Only Move Is HUSTLE", "web12", "776"],
       ["Granny", "web11", "90"],
       ["Brotato", "web16", "723"],
       ["Cookie Clicker", "web19", "82"],
-      ["Minecraft (Eagler)", "web21", "182"],
+      ["Minecraft (Eagler)", "web41", "182"],
       ["Five Nights at Frickbear's 3", "web36", "813"],
-      ["Plants Vs. Zombies (GOTY Edition)", "web37", "842"]
+      ["Plants Vs. Zombies (GOTY Edition)", "web37", "842"],
+      ["Clustertruck", "web40", "81"]
     ]
   },
   {
-    "path": "/m/five/",
-    "games": [
-      ["FNAF 1", "1", "38"],
-      ["FNAF 2", "2", "39"],
-      ["FNAF 3", "3", "40"],
-      ["FNAF 4", "4", "41"],
-      ["FNAF Pizzeria Simulator", "ps", "191"],
-      ["FNAF World", "w", "190"],
-      ["FNAF Sister Location", "sl", "185"],
-      ["FNAF Ultimate Custom Night", "ucn", "192"]
+    "groups": [
+      {
+        "path": "/m/five/",
+        "name": "FNAF",
+        "games": [
+          ["FNAF 1", "1", "38"],
+          ["FNAF 2", "2", "39"],
+          ["FNAF 3", "3", "40"],
+          ["FNAF 4", "4", "41"],
+          ["FNAF Pizzeria Simulator", "ps", "191"],
+          ["FNAF World", "w", "190"],
+          ["FNAF Sister Location", "sl", "185"],
+          ["FNAF Ultimate Custom Night", "ucn", "192"]
+        ],
+        "img": "https://placehold.co/320/137/orange?text=FNAF"
+      }
     ]
   },
   {

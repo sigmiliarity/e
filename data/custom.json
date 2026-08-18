@@ -27,32 +27,17 @@
         "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/inscryption.jpg"
       ],
       [
-        "Deltarune Chapter 1",
-        "/m/delta2/1/",
-        "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/deltarune.png"
-      ],
-      [
-        "Deltarune Chapter 2",
-        "/m/delta2/2/",
-        "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/deltarune.png"
-      ],
-      [
-        "Deltarune Chapter 3",
-        "/m/delta2/3/",
-        "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/deltarune.png"
-      ],
-      [
-        "Deltarune Chapter 4",
-        "/m/delta2/4/",
+        "Deltarune Chapters 1-5",
+        "/m/web42/",
         "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/deltarune.png"
       ],
       [
         "Modded Geometry Dash",
         "/m/web22/",
-        "https://raw.githubusercontent.com/sigmiliarity/web22/refs/heads/main/assets/logo.png"
+        "https://raw.githubusercontent.com/sigmiliarity/web22/refs/heads/main/assets/favicon.ico"
       ],
       [
-        "  Σ Official Music",
+        "Σ Music (broken)",
         "/m/web24/",
         "https://placehold.co/320/222/yellow?text=Σ"
       ],
@@ -67,11 +52,6 @@
         "https://raw.githubusercontent.com/sigmiliarity/web25/refs/heads/main/favicon.png"
       ],
       [
-        "Slender Multiplayer",
-        "/m/web26/",
-        "https://raw.githubusercontent.com/sigmiliarity/web26/refs/heads/main/icon-256.png"
-      ],
-      [
         "Half Life",
         "/m/web28/",
         "https://raw.githubusercontent.com/sigmiliarity/web28/refs/heads/main/xd.png"
@@ -80,11 +60,6 @@
         "Balatro",
         "/m/web27/",
         "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/balatro.png"
-      ],
-      [
-        "Duck Life 7",
-        "/m/web16/duck%20life%20battle/",
-        "https://raw.githubusercontent.com/sigmiliarity/web16/refs/heads/main/duck%20life%20battle/TemplateData/favicon.ico"
       ],
       [
         "Spelunky (godot fake but good)",
@@ -100,7 +75,82 @@
         "Totally Accurate Battle Simulator",
         "/m/web33/",
         "https://raw.githubusercontent.com/sigmiliarity/web33/refs/heads/main/icon.ico"
+      ],
+      [
+        "Peak",
+        "/m/web39/",
+        "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/peak.png"
+      ],
+      [
+        "Granny 2",
+        "/m/web43/",
+        "https://raw.githubusercontent.com/sigmiliarity/webD/refs/heads/main/granny2.png"
       ]
+    ],
+    "groups": [
+      {
+        "name": "Duck Life",
+        "games": [
+          ["Duck Life 1", "/m/a2/semag/ducklife1/unity/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife1/ducklife1.png"],
+          ["Duck Life 2", "/m/a2/semag/ducklife2/unity/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife2/ducklife2.png"],
+          ["Duck Life 3", "/m/a2/semag/ducklife3/unity/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife3/ducklife3.png"],
+          ["Duck Life 4", "/m/a2/semag/ducklife4/unity/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife4/icon.png"],
+          ["Duck Life 5", "/m/a2/semag/ducklife5/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife5/ducklife5.png"],
+          ["Duck Life 6", "/m/a2/semag/ducklife6/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/ducklife6/ducklife5.png"],
+          [
+            "Duck Life 7",
+            "/m/web16/duck%20life%20battle/",
+            "https://raw.githubusercontent.com/sigmiliarity/web16/refs/heads/main/duck%20life%20battle/TemplateData/favicon.ico"
+          ],
+          ["Duck Life 8", "/m/web14/", "https://raw.githubusercontent.com/sigmiliarity/webC/refs/heads/main/695.png"]
+        ],
+        "img": "https://placehold.co/320/137/orange?text=Duck+Life"
+      },
+      {
+        "name": "Riddle School",
+        "games": [
+            ["Riddle School", "/m/a2/semag/riddleschool/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschool/RiddleSchool2.png"],
+            ["Riddle School 2", "/m/a2/semag/riddleschool2/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschool2/icon.png"],
+            ["Riddle School 3", "/m/a2/semag/riddleschool3/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschool3/riddle-school-3.webp"],
+            ["Riddle School 4", "/m/a2/semag/riddleschool4/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschool4/Untitled.jpeg"],
+            ["Riddle School 5", "/m/a2/semag/riddleschool5/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschool5/Untitled.jpeg"],
+            ["Riddle Transfer", "/m/a2/semag/riddleschooltransfer/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschooltransfer/Untitled.jpeg"],
+            ["Riddle Transfer 2", "/m/a2/semag/riddleschooltransfer2/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/riddleschooltransfer2/aUntitled.jpeg"]
+        ],
+        "img": "https://placehold.co/320/137/orange?text=Riddle+School"
+      },
+      {
+        "name": "Papas Games",
+        "games": [
+            ["Papas Freezeria", "/m/a2/semag/papasfreezeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papasfreezeria/images.jpeg"],
+            ["Papas Pizzeria", "/m/a2/semag/papaspizzeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papaspizzeria/images.jpeg"],
+            ["Papas Burgeria", "/m/a2/semag/papasburgeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papasburgeria/images.jpeg"],
+            ["Papas Donuteria", "/m/a2/semag/papasdonuteria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papasdonuteria/papasdonuteria.png"],
+            ["Papas Pancakeria", "/m/a2/semag/papaspancakeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papaspancakeria/papaspancakeria.png"],
+            ["Papas Scooperia", "/m/a2/semag/papasscooperia/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papasscooperia/papasscooperia.png"],
+            ["Papas Tacomia", "/m/a2/semag/papastacomia/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papastacomia/papastacomia.png"],
+            ["Papas Bakeria", "/m/a2/semag/papasbakeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papasbakeria/papasbakeria.png"],
+            ["Papas Cheeseria", "/m/a2/semag/papascheeseria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papascheeseria/papascheeseria.png"],
+            ["Papas Pastaria", "/m/a2/semag/papaspastaria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papaspastaria/papaspastaria.png"],
+            ["Papas Sushiria", "/m/a2/semag/papassushiria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papassushiria/papassushiria.png"],
+            ["Papas Wingeria", "/m/a2/semag/papaswingeria/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/papaswingeria/papaswingeria.png"]
+        ],
+        "img": "https://placehold.co/320/137/orange?text=Papas+Games"
+      },
+      {
+        "name": "Vex",
+        "games": [
+            ["Vex", "/m/a2/semag/vex/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex/icon.png"],
+            ["Vex 2", "/m/a2/semag/vex2/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex2/icon.png"],
+            ["Vex 3", "/m/a2/semag/vex3/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex3/icon.png"],
+            ["Vex 4", "/m/a2/semag/vex4/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex4/vex4.png"],
+            ["Vex 5", "/m/a2/semag/vex5/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex5/icon.png"],
+            ["Vex 6", "/m/a2/semag/vex6/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex6/icon.png"],
+            ["Vex 7", "/m/a2/semag/vex7/", "https://raw.githubusercontent.com/sigmiliarity/a2/refs/heads/main/semag/vex7/icon.jpeg"],
+            ["Vex 8", "/m/a7/vex8/", "https://raw.githubusercontent.com/sigmiliarity/a7/refs/heads/main/vex8/assets/icon.png"]
+        ],
+        "img": "https://placehold.co/320/137/orange?text=Vex"
+      }
     ]
   }
 ]
