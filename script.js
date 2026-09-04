@@ -207,37 +207,75 @@ const tabBtns = document.querySelectorAll(".tab-btn");
 const updateBadge = document.getElementById("updateBadge");
 
 async function loadInfo() {
-  try {
-    const res = await fetch("info.json");
-    const info = await res.json();
-    
-    const savedVersion = localStorage.getItem("appVersion");
-    if (savedVersion && savedVersion !== info.version) {
-      updateBadge.style.display = "inline";
-    }
-    localStorage.setItem("appVersion", info.version);
+    //localStorage.setItem("appVersion", info.version);
     
     const changelogContent = document.getElementById("changelogContent");
-    changelogContent.innerHTML = info.changelog.map(entry => `
-      <div style="margin-bottom: 16px;">
-        <strong style="color: var(--primary);">v${entry.version}</strong> <span style="color: var(--muted-text);">${entry.date}</span>
-        <ul style="margin: 8px 0; padding-left: 20px;">
-          ${entry.changes.map(change => `<li>${change}</li>`).join("")}
-        </ul>
-      </div>
-    `).join("");
+    changelogContent.innerHTML = `
+    <h3>Save Sigma Bundler</h3>
+
+    <p>
+        <strong>Sigma Bundler might not be around forever.</strong>
+    </p>
+
+    <p>
+        Sigma Bundler has over <strong>1,600 games</strong>, requires
+        <strong>no accounts</strong>, and is completely free to use.
+        But with so few people playing, it's getting harder to justify
+        continuing development.
+    </p>
+
+    <p>
+        If you want Sigma Bundler to stick around, the best thing you
+        can do is <strong>share it.</strong>
+    </p>
+
+    <p>
+        Send it to a friend, post it somewhere, or tell someone who
+        used to play here. <strong>Every player counts.</strong>
+    </p>
+
+    <h3>What happens next?</h3>
+
+    <p>
+        We're going to see if we can bring the community back.
+        If enough people return, Sigma Bundler will keep getting
+        updates and new games.
+    </p>
+
+    <p>
+        If the numbers stay low, Our team may eventually shut the project down.
+    </p>
+
+    <h3>What's planned?</h3>
+
+    <p>
+        There's still a lot We'd like to do with Sigma Bundler, including:
+    </p>
+
+    <ul>
+        <li>A better organized games list</li>
+        <li>Favorites and recently played games</li>
+        <li>An easier way to request games and send feedback</li>
+        <li>Accounts and social features</li>
+        <li>No more broken games</li>
+        <li>Better mobile support</li>
+        <li>Tons of new games (including every retro game N64 and before)</li>
+    </ul>
+
+    <p>
+        <strong>If you want to see those updates happen, help bring
+        Sigma Bundler back.</strong>
+    </p>
+
+    <p>
+        ❤️ Thanks for playing.
+    </p>
+`;
     
     const aboutContent = document.getElementById("aboutContent");
     aboutContent.innerHTML = `
-      <p><strong>${info.about.title}</strong></p>
-      <p>${info.about.description}</p>
-      <p><strong>Created by:</strong> Sigmiliarity</p>
-      <p><a href="${info.about.github}" target="_blank">View on GitHub (${info.about.github})</a></p>
-      <p><a href="mailto:sigmiliarity@gmail.com">Contact (sigmiliarity@gmail.com)</a></p>
+     ┘→¡§-┤Σ╚3≥Φσ☻├
     `;
-  } catch (e) {
-    console.error("Failed to load info.json", e);
-  }
 }
 
 loadInfo();

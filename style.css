@@ -12,13 +12,15 @@
     --border: rgba(255, 255, 255, 0.08);
     --radius: 6px;
     --transition: 0.2s ease;
+    --danger: #ff3b3b;
+    --danger-bright: #ff5555;
 }
 
 body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: 'skibidi', system-ui, -apple-system, sans-serif;
+    font-family: "skibidi", system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
     overflow: hidden;
@@ -37,6 +39,7 @@ header {
 }
 
 /* Search Bar */
+
 .search-bar {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border);
@@ -56,6 +59,7 @@ header {
 }
 
 /* Clusterize Area */
+
 .clusterize {
     height: calc(100vh - 70px);
     overflow-y: auto;
@@ -64,6 +68,7 @@ header {
 }
 
 /* Grid System */
+
 .game-list {
     padding-top: 2rem;
     margin: 0 auto;
@@ -77,6 +82,7 @@ header {
 }
 
 /* Card Design */
+
 .game-card {
     background: var(--card-bg);
     border-radius: var(--radius);
@@ -88,7 +94,7 @@ header {
     transition: var(--transition);
     border: 1px solid var(--border);
     position: relative;
-    aspect-ratio: 4/5.5;
+    aspect-ratio: 4 / 5.5;
 }
 
 .game-card:hover {
@@ -99,7 +105,6 @@ header {
 .game-card img {
     width: 100%;
     height: 75%;
-    object-type: cover;
     object-fit: cover;
     transition: var(--transition);
 }
@@ -115,6 +120,7 @@ header {
 }
 
 /* Official Games */
+
 .game-card.official-game {
     border-color: rgba(250, 204, 21, 0.6);
     border-width: 3px;
@@ -126,6 +132,7 @@ header {
 }
 
 /* Badge System */
+
 .badge {
     font-size: 0.65rem;
     padding: 4px 8px;
@@ -146,6 +153,7 @@ header {
 }
 
 /* Filter Interaction */
+
 .b-i {
     cursor: pointer;
     transition: var(--transition);
@@ -161,25 +169,99 @@ header {
     filter: grayscale(1);
 }
 
-/* News Button */
+/* =========================================================
+   SAVE SIGMA BUNDLER BUTTON
+   ========================================================= */
+
 .news-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--primary);
-    padding: 8px 14px;
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(255, 0, 0, 0.32),
+            rgba(255, 0, 0, 0.06)
+        );
+
+    background-size: 200% 100%;
+
+    border: 2px solid var(--danger);
+    color: var(--danger-bright);
+
+    padding: 9px 18px;
     border-radius: var(--radius);
+
     cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: var(--transition);
+
+    font-size: 1.15rem;
+    font-weight: 900;
+
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+
+    animation:
+        redSweep 2s linear infinite,
+        dangerPulse 1.8s ease-in-out infinite;
+
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.25),
+        inset 0 0 15px rgba(255, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.news-btn::before {
+    content: "⚠";
+    font-size: 1rem;
 }
 
 .news-btn:hover {
-    background: rgba(0, 242, 224, 0.08);
-    border-color: var(--primary);
+    background: #ff2222;
+    color: white;
+    border-color: #ff6666;
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 18px rgba(255, 0, 0, 0.8),
+        0 0 45px rgba(255, 0, 0, 0.35);
+
+    text-shadow: none;
+}
+
+@keyframes redSweep {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes dangerPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(255, 0, 0, 0.25),
+            inset 0 0 15px rgba(255, 0, 0, 0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 22px rgba(255, 0, 0, 0.55),
+            inset 0 0 20px rgba(255, 0, 0, 0.15);
+    }
 }
 
 .update-badge {
@@ -188,144 +270,277 @@ header {
     margin-left: 4px;
 }
 
-/* Modal Overlay */
+/* =========================================================
+   MODAL OVERLAY
+   ========================================================= */
+
 .modal {
     display: none;
+
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+
+    background: rgba(0, 0, 0, 0.84);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
     z-index: 1000;
+
     align-items: center;
     justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal.active {
     display: flex;
 }
 
-/* Modal Content */
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
 .modal-content {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    max-width: 480px;
-    width: 90%;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at top center,
+            rgba(255, 0, 0, 0.13),
+            transparent 50%
+        ),
+        var(--card-bg);
+
+    border: 1px solid rgba(255, 50, 50, 0.5);
+
+    border-radius: 12px;
+
+    width: min(720px, 95vw);
+    max-width: 720px;
+
+    max-height: 90vh;
+
     overflow: hidden;
+
+    box-shadow:
+        0 0 35px rgba(255, 0, 0, 0.16),
+        0 25px 90px rgba(0, 0, 0, 0.75);
+
+    animation: modalIn 0.25s ease-out;
 }
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
+
+    padding: 24px 28px;
+
+    border-bottom: 1px solid rgba(255, 50, 50, 0.25);
+
+    background: rgba(255, 0, 0, 0.045);
 }
 
 .modal-header h2 {
     margin: 0;
-    font-size: 1.2rem;
-    color: var(--primary);
+
+    font-size: 1.7rem;
+    font-weight: 900;
+
+    color: var(--danger-bright);
+
+    text-shadow:
+        0 0 12px rgba(255, 0, 0, 0.35);
 }
 
 .close-btn {
     background: none;
     border: none;
+
     color: var(--muted-text);
-    font-size: 1.5rem;
+
+    font-size: 2rem;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 6px;
+
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     transition: var(--transition);
-    padding: 0;
 }
 
 .close-btn:hover {
-    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
 }
 
-/* Modal Tabs */
+/* =========================================================
+   HIDE OLD TABS
+   ========================================================= */
+
 .modal-tabs {
-    display: flex;
-    padding: 0 20px;
-    border-bottom: 1px solid var(--border);
+    display: none;
 }
 
-.tab-btn {
-    background: none;
-    border: none;
-    color: var(--muted-text);
-    padding: 10px 16px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: var(--transition);
-    border-bottom: 2px solid transparent;
+.tab-content {
+    display: block;
 }
 
-.tab-btn:hover {
-    color: var(--text);
-}
+/* =========================================================
+   MODAL BODY
+   ========================================================= */
 
-.tab-btn.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-}
-
-/* Modal Body */
 .modal-body {
-    padding: 20px;
-    max-height: 360px;
+    padding: 34px 38px;
+
+    max-height: calc(90vh - 100px);
+
     overflow-y: auto;
+
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
 }
 
-.tab-content {
-    display: none;
-}
+.modal-body h3 {
+    color: var(--danger-bright);
 
-.tab-content.active {
-    display: block;
-}
-
-.tab-content h3 {
-    color: var(--primary);
     margin-top: 0;
-    font-size: 1.1rem;
+    margin-bottom: 16px;
+
+    font-size: 1.55rem;
+    font-weight: 900;
+
+    text-shadow:
+        0 0 10px rgba(255, 0, 0, 0.2);
 }
 
-.tab-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.modal-body h3:not(:first-child) {
+    margin-top: 34px;
 }
 
-.tab-content li {
-    padding: 8px 0;
+.modal-body p {
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    color: var(--text);
+
+    margin: 14px 0;
+}
+
+.modal-body strong {
+    color: white;
+    font-weight: 800;
+}
+
+.modal-body ul {
+    padding-left: 25px;
+    margin: 18px 0;
+}
+
+.modal-body li {
+    padding: 9px 0;
+
+    font-size: 1rem;
+
+    color: var(--text);
+
     border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
 }
 
-.tab-content li:last-child {
+.modal-body li:last-child {
     border-bottom: none;
 }
 
-.tab-content p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--text);
-    margin: 8px 0;
-}
-
-.tab-content a {
+.modal-body a {
     color: var(--primary);
     text-decoration: none;
 }
 
-.tab-content a:hover {
+.modal-body a:hover {
     text-decoration: underline;
 }
+
+/* =========================================================
+   SHARE BUTTON INSIDE SAVE MODAL
+   ========================================================= */
+
+#shareSigma {
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding: 15px 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2222,
+            #ff4545,
+            #ff2222
+        );
+
+    background-size: 200% 100%;
+
+    border: 1px solid #ff6666;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1.05rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#shareSigma:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.55),
+        0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   GAME GROUPS
+   ========================================================= */
 
 .game-card.group-card {
     cursor: pointer;
@@ -342,6 +557,7 @@ header {
         transform: translateY(-20px) scaleY(0.95);
         max-height: 0;
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scaleY(1);
@@ -359,4 +575,86 @@ header {
 
 .sub-game-card:hover {
     border-color: rgba(0, 0, 255, 0.8) !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+    header {
+        padding: 0.65rem 1rem;
+        gap: 10px;
+    }
+
+    .search-bar {
+        width: 160px;
+    }
+
+    .search-bar:focus {
+        width: 190px;
+    }
+
+    .news-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-height: 94vh;
+    }
+
+    .modal-header {
+        padding: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .modal-body {
+        padding: 26px 22px;
+        max-height: calc(94vh - 85px);
+    }
+
+    .modal-body h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-body p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    header {
+        padding: 0.6rem 0.7rem;
+    }
+
+    .search-bar {
+        width: 130px;
+        font-size: 0.8rem;
+    }
+
+    .search-bar:focus {
+        width: 150px;
+    }
+
+    .news-btn {
+        padding: 7px 10px;
+        font-size: 0.78rem;
+    }
+
+    .news-btn::before {
+        font-size: 0.8rem;
+    }
+
+    .modal-body {
+        padding: 22px 18px;
+    }
 }
