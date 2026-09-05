@@ -100,7 +100,8 @@
         "Sound board",
         "/m/web46/",
         "https://raw.githubusercontent.com/sigmiliarity/web46/refs/heads/main/button.png"
-      ]
+      ],
+      ["Guess the Kitty", "/m/a6/guess-kitty/", "https://raw.githubusercontent.com/sigmiliarity/a6/refs/heads/main/guess-kitty/logo.jpg"]
     ],
     "groups": [
       {
