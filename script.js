@@ -1,7 +1,7 @@
 const CATEGORIES = [
     { key: "featured", title: "Featured" },
     { key: "default", title: "Games" },
-    { key: "archive", title: "Archive (Unsupported)" }
+    { key: "archive", title: "Untested/Archive" }
 ];
 
 const COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
