@@ -1,6 +1,6 @@
 const CATEGORIES = [
     { key: "featured", title: "Featured" },
-    { key: "default", title: "Games" },
+    { key: "default", title: "Tested Games" },
     { key: "archive", title: "Archive (Unsupported)" }
 ];
 
